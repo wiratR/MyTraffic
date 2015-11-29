@@ -1,6 +1,8 @@
 package appewtc.masterung.mytraffic;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -29,9 +31,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //sound effect
-                MediaPlayer mediaPlayer = MediaPlayer.create(getBaseContext(),R.raw.effect_btn_long);
+                MediaPlayer ButtonPlayer = MediaPlayer.create(getBaseContext(),R.raw.effect_btn_long);
                 // getBaseContext คือ แหล่งเสียงภายใน เครื่อง internal memory
-                mediaPlayer.start();
+                ButtonPlayer.start();
+
+                // Web View
+                Intent ObjIntent = new Intent(Intent.ACTION_VIEW);    // ให้ ObjIntent เป็น Intent
+                ObjIntent.setData(Uri.parse("https://youtu.be/YM_D0Qx5VOk"));
+                //startActivities(ObjIntent);
+                startActivity(ObjIntent);
+
 
 
             } //event
