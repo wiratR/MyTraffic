@@ -40,6 +40,7 @@ public class DetailActivity extends AppCompatActivity {
         detailTextView = (TextView) findViewById(R.id.textView3);
         trafficImageView = (ImageView) findViewById(R.id.imageView);
 
+
     }
 
 }// Main Clas
