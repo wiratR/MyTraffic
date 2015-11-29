@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private void createListView() {
 
         //Icon
-        int[] intIcon = new int[20];            // 0 - 19
+        final int[] intIcon = new int[20];            // 0 - 19
         intIcon[0] = R.drawable.traffic_01;     // Integer
         intIcon[1] = R.drawable.traffic_02;
         intIcon[2] = R.drawable.traffic_03;
@@ -58,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         // Integer โยนไป Adapter
 
         //Title
-        String[] strTitle = new String[20];
+        final String[] strTitle = new String[20];
         strTitle[0] = "หัวข้อที่ 1";
         strTitle[1] = "หัวข้อที่ 2";
         strTitle[2] = "หัวข้อที่ 3";
@@ -81,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         strTitle[19] = "หัวข้อที่ 20";
 
         // Detail
-        String[] strDetail = new String[20];
+        final String[] strDetail = new String[20];
         strDetail[0] = "รายละเอีดยที่ 1";
         strDetail[1] = "รายละเอีดยที่ 2";
         strDetail[2] = "รายละเอีดยที่ 3";
@@ -107,8 +108,22 @@ public class MainActivity extends AppCompatActivity {
         MyAdapter objMyAdapter = new MyAdapter(MainActivity.this,intIcon,strTitle,strDetail);
         trafficListView.setAdapter(objMyAdapter);
 
+        trafficListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // Add event additem
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent ObjIntent = new Intent(MainActivity.this, DetailActivity.class);
+                ObjIntent.putExtra("Title",strTitle[position]); // โยน ค่า ออกไป ที่หน้า Page ด้วยค่า Postion
+                ObjIntent.putExtra("image", intIcon[position]);
+                ObjIntent.putExtra("Detail",strDetail[position]);
+                startActivity(ObjIntent);
+
+            }// Event
+        });
+
 
     }// Create ListView
+
+
 
 
     private void buttonController() {
