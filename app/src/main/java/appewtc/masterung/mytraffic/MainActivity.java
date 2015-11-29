@@ -1,5 +1,6 @@
 package appewtc.masterung.mytraffic;
 
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -27,7 +28,10 @@ public class MainActivity extends AppCompatActivity {
         aboutMEButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                //sound effect
+                MediaPlayer mediaPlayer = MediaPlayer.create(getBaseContext(),R.raw.effect_btn_long);
+                // getBaseContext คือ แหล่งเสียงภายใน เครื่อง internal memory
+                mediaPlayer.start();
 
 
             } //event
