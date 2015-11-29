@@ -5,5 +5,8 @@
 
     <dimen name="h1">35sp</dimen>
     <dimen name="h2">20sp</dimen>
+    <!-- Assigment Size icon-->
+    <dimen name="icon">100dp</dimen>
+
 
 </resources>
