@@ -104,6 +104,10 @@ public class MainActivity extends AppCompatActivity {
         strDetail[19] = "รายละเอีดยที่ 20";
 
 
+        MyAdapter objMyAdapter = new MyAdapter(MainActivity.this,intIcon,strTitle,strDetail);
+        trafficListView.setAdapter(objMyAdapter);
+
+
     }// Create ListView
 
 
